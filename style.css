@@ -1,0 +1,280 @@
+@charset "UTF-8";
+/*basic styles starts*/
+html {
+  background-color: #f7f7f7;
+
+}
+
+
+body {
+  color: #333333;
+  font-family: "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 16px;
+  width: 100%;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  line-height: 1.9em;
+  font-weight: 400;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link, a:visited {
+  opacity: 1;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+  color: #424242;
+}
+
+a:hover, a:active {
+  color: #555555;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  text-rendering: optimizeLegibility;
+}
+
+hr {
+  border: 1px solid #f3f3f3;
+}
+
+/*basic styles ends*/
+.main {
+  background: #ffffff;
+  -webkit-box-shadow: 0 10px 20px 0 rgba(236, 236, 236, 0.86);
+          box-shadow: 0 10px 20px 0 rgba(236, 236, 236, 0.86);
+  width: 800px;
+  margin: 60px auto 0;
+}
+
+.content {
+  width: 720px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.list_with_title .container {
+  width: 720px;
+  margin: 0 auto;
+}
+
+.nav_container {
+  width: 740px;
+  height: 3rem;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.nav_container .menu_icon {
+  padding: 10px;
+  float: right;
+  display: none;
+}
+
+.nav_container .menu_icon a {
+  cursor: pointer;
+}
+
+.nav_container .site_nav {
+  float: right;
+}
+
+.nav_container .site_nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+.nav_container .site_nav li,
+.nav_container .site_nav a {
+  position: relative;
+}
+
+.nav_container .site_nav li {
+  float: left;
+}
+
+.nav_container .site_nav a {
+  display: block;
+  white-space: nowrap;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+.header {
+  width: 720px;
+  padding: 50px 0 140px 0;
+  margin: 0 auto;
+  background-size: cover;
+}
+
+.header .site_title_container {
+  padding: 0 0;
+}
+
+.header .site_title_container h1 {
+  line-height: 1;
+  margin: 0;
+}
+
+.header .site_title_container a {
+  text-decoration: none;
+  font-weight: bold;
+  float: left;
+}
+
+.header .site_title_container .site_title a {
+  font-size: 28px;
+  width: 65px;
+  letter-spacing: 2px;
+  line-height: 1.2;
+  color: #000000;
+}
+
+.header .site_title_container .site_title a span {
+  display: block;
+}
+
+.header .site_title_container .site_title a:hover {
+  color: #666666;
+}
+
+.header .site_title_container .description {
+  font-size: 0.9rem;
+  color: #565654;
+  float: right;
+}
+
+.header .site_title_container .description .sub_title {
+  font-weight: normal !important;
+  float: none !important;
+  text-align: right;
+}
+
+.header .my_socials {
+  list-style: none;
+  font-size: 14px;
+  float: right;
+  margin: 5px 0;
+}
+
+.header .my_socials i {
+  margin-left: 10px;
+}
+
+.header .my_socials a {
+  color: #5f5f5f;
+  font-size: 12px;
+  float: none;
+  cursor: pointer;
+}
+
+.header .my_socials a:hover {
+  color: #000000;
+}
+
+
+/*.post .post_footer .meta .info .date {
+  margin-right: 10px;
+}*/
+
+.footer {
+  clear: both;
+  max-width: 780px;
+  text-align: center;
+  font-size: 12px;
+  padding: 40px 0;
+  margin: 0 auto;
+}
+
+.footer a {
+  color: #a6a6a6;
+  margin: 0 12px;
+}
+
+.footer a:hover {
+  color: #1f1f1f;
+}
+
+.footer .powered_by {
+  margin: 0;
+  font-size: 11px;
+}
+
+.footer .powered_by a {
+  color: #cccccc;
+  margin: 0 2px;
+}
+
+.footer .powered_by a:hover {
+  color: #1f1f1f;
+}
+
+.footer .footer_slogan {
+  padding-top: 25px;
+  padding-bottom: 10px;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+/*for archive*/
+.list_with_title {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.list_with_title li {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list_with_title .listing_title {
+  font-size: 1.4rem;
+  color: #1f1f1f;
+  font-weight: bold;
+  padding-top: 10px;
+  line-height: 2.2em;
+}
+
+.list_with_title .listing {
+  margin: 0 0 50px 0;
+  padding: 0;
+  line-height: 2.1;
+}
+
+.list_with_title .listing .listing_post {
+  padding-bottom: 5px;
+}
+
+.list_with_title .listing .listing_post a {
+  display: inline-block;
+  width: 85%;
+}
+
+.list_with_title .listing .listing_post .post_time {
+  float: right;
+  color: #c5c5c5;
+  font-size: 14px;
+}
+
+.list_with_title .listing .listing_post a:hover {
+  color: #1f1f1f;
+}
+
+.pagination {
+  padding: 30px 0 60px 0;
+  border-bottom: 1px solid #f2f2f2;
+  color: #666666;
+  font-size: 14px;
+}
+
