@@ -79,45 +79,49 @@
     </div>
 </div>
 
-<!--         <div id="page1">
-            <iframe align="center" width="100%" height="170" src="lab2.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no">
-            </iframe>
-        </div>     -->
-        
+        <canvas id="triangle-canvas" style="border:none;" width="400" height="400"  style="vertical-align: middle;">浏览器不支持HTML5 canvas元素</canvas>
         <div class="content">
             <div class="list_with_title">
                 
-                <div class="listing_title"></div>
+                <div class="listing_title">重复教材代码，完成Sierpinski Gasket的绘制</div>
                 <div class="listing">
  
                     <div class="listing_item">
                         <div class="listing_post">
                             
-		<div style="text-align: center;">
-		<canvas id="triangle-canvas" style="border:none;" width="400" height="400"  style="vertical-align: middle;">浏览器不支持HTML5 canvas元素</canvas>
-		</div>
                             <h4>任务a. 要求在网页上添加交互式控件，输入剖分的层次(0-7)，绘制对应图案。</h4>
-                                层数控件（0~7，初始值为4）：<input type="range" id="selNum" min= "0" max="7" value="4"/>
-                            <hr color="#974BE0" width="500px" align="left">
+                                层数控件（0~7，初始值为4）<input type="range" id="selNum" min= "0" max="7" value="4" />
                             <h4>任务b. 绘制三维效果的Sierpinski Gasket, 要求同任务a</h4>
-                            <h4>任务c. 完成不同层次剖分效果的绘制，此处绘制采用线框模式</h4>
-                                2D:<input type="radio" name="shape" value="2d" checked="checked"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                                3D:<input type="radio" name="shape" value="3d"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                                线框：<input type="radio" name="shape" value="wire"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button  id="selShape" type="button">确定</button>
-                            <hr color="#974BE0" width="500px" align="left">
-                            <h4>任务d. 任务c中剖分后的三角形添加旋转效果。</h4>
-                            <h4>任务e. 在任务d中，如果旋转角度根据点到原点的距离设定</h4>
-                            关:<input type="radio" name="switch" value="2d" checked="checked"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                            任务d:<input type="radio" name="switch" value="3d"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                            任务e：<input type="radio" name="switch" value="wire"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button  id="selSwitch" type="button">确定</button>
-                                <br /><br />
-                            旋转角度控制（0~360，初始值为60）：<input type="range" id="rotate" min= "0" max="360" value="60"/>
+
                         </div>
                     </div>
+                </div>    
 
+                <div class="listing_title">根据Sierpinski Gasket的思路，完成相应图案的绘制</div>
+                <div class="listing">
+                    
+                    <div class="listing_item">
+                        <div class="listing_post">
+                            <h4>任务c. 完成不同层次剖分效果的绘制，此处绘制采用线框模式</h4>
+                                2D<input type="radio" name="shape" value="2d" checked="checked"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                                3D<input type="radio" name="shape" value="3d"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                                线框<input type="radio" name="shape" value="wire"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button  id="selShape" type="button">确定</button>
+                            <h4>任务d. 任务c中剖分后的三角形添加旋转效果。</h4>
+                            关<input type="radio" name="switch1" value="2d" checked="checked"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                            开<input type="radio" name="switch" value="3d"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button  id="selSwitch" type="button">确定</button>
+                            <h4>任务e. 在任务d中，如果旋转角度根据点到原点的距离设定</h4>
+                            关<input type="radio" name="switch2" value="2d" checked="checked"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                            开<input type="radio" name="switch" value="wire"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button  id="selSwitch" type="button">确定</button>
+                            <br><br>
+                            旋转角度控制（0~360，初始值为60）<input type="range" id="rotate" min= "0" max="360" value="60"/>
+                        </div>
+                    </div>
+                    
                 </div>
+
             </div>
         </div>
         <div class="pagination"></div>
