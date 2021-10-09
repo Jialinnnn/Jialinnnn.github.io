@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 		<title>lab1e</title>
 		<!-- 顶点着色器和片元着色器代码 -->
-		<script id="vertex-shader" type="x-shader/x-vertex">
+		<script id="vertex-shader-new" type="x-shader/x-vertex">
 			attribute vec4 vPosition;
 			attribute vec4 vColor;
 			varying vec4 fColor;
@@ -13,7 +13,7 @@
 				fColor = vColor;
 			}
 		</script>
-		<script id="fragment-shader" type="x-shader/x-fragment">
+		<script id="fragment-shader-new" type="x-shader/x-fragment">
 			precision mediump float;
 			varying vec4 fColor;
 			void main(){
@@ -29,7 +29,7 @@
 	</head>
 	<body>
 		<div style="text-align: center;">
-			<canvas id="triangle2-canvas" style="border:none;" width="500" height="500"  style="vertical-align: middle;"></canvas>
+			<canvas id="triangle-canvas" style="border:none;" width="500" height="500"  style="vertical-align: middle;"></canvas>
 		</div>
 	</body>
 </html>
