@@ -4,6 +4,19 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 		<title>lab1e</title>
 		<!-- 顶点着色器和片元着色器代码 -->
+				<script id="vertex-shader" type="x-shader/x-vertex">
+			attribute vec4 vPosition;
+			void main(){
+				gl_Position = vPosition;
+			}
+		</script>
+		<script id="fragment-shader" type="x-shade/x-fragment">
+			precision mediump float;
+			void main(){
+				// gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+				gl_FragColor = vec4((360.0-gl_FragCoord.x)/360.0*1.0, (gl_FragCoord.x/360.0)*1.0, (gl_FragCoord.y/360.0)*1.0, 1.0);
+			}
+		</script>
 		<script id="vertex-shader-new" type="x-shader/x-vertex">
 			attribute vec4 vPosition;
 			attribute vec4 vColor;
@@ -13,10 +26,11 @@
 				fColor = vColor;
 			}
 		</script>
-		<script id="fragment-shader-new" type="x-shader/x-fragment">
+		<script id="fragment-shader-new" type="x-shade/x-fragment">
 			precision mediump float;
 			varying vec4 fColor;
 			void main(){
+				// gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
 				gl_FragColor = fColor;
 			}
 		</script>
