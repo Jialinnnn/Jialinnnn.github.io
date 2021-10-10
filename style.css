@@ -54,6 +54,10 @@ hr {
   margin: 60px auto 0;
 }
 
+.box {
+  position: absolute
+}
+
 .content {
   width: 720px;
   height: auto;
