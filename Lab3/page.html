@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+    <meta charset="utf-8" />
+
+	<title>My Blogs</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+<script id="rot-v-shader" type="x-shader/x-vertex">
+    attribute vec4 vPosition;
+    uniform float theta;
+
+    void main()
+    {
+        float u = cos( theta );
+        float v = sin( theta );
+
+        gl_Position.x = vPosition.x * u - vPosition.y * v;
+        gl_Position.y = vPosition.x * v + vPosition.y * u;
+        gl_Position.z = 0.0;
+        gl_Position.w = 1.0;
+    }
+    </script>
+
+    <script id="rot-f-shader" type="x-shader/x-fragment">
+    precision mediump float;
+
+    void main()
+    {
+        gl_FragColor = vec4( 1.0, 0.0, 0.0, 1.0 );
+    }
+    </script>
+
+    <script type="text/javascript" src="../js/common/gl-matrix-min.js"></script>
+    <script type="text/javascript" src="../js/common/initShaders.js"></script>
+    <script type="text/javascript" src="../js/common/webgl-utils.js"></script>
+
+    <script type="text/javascript" src="../js/rottrianglelider.js"></script>
+</head>
+
+<body onload="initRotSquare()">
+    <div class="main">
+        <div class="nav_container">
+    <div class="site_nav" id="site_nav">
+        <ul>
+
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            
+            <li>
+                <a href="#">Blog</a>
+            </li>
+
+            <li>
+                <a href="./About.html">About</a>
+            </li>      
+        </ul>
+    </div>
+
+</div>
+        <div class="header">
+    <div class="site_title_container">
+        <div class="site_title">
+            <h1>
+                <a href="#">
+                    <span>Lab3</span>
+                </a>
+            </h1>
+        </div>
+        <div class="description">
+            <p class="sub_title">Try harder.</p>
+
+        </div>
+    </div>
+</div>
+	<div style="text-align: center;">
+		<canvas id="rot-canvas" width="512" height="512">你的浏览器不支持HTML5 canvas元素</canvas>
+    <fieldset>
+        <legend>转动控制</legend>
+        <button id="direction" onclick="changeDir()">换个转动方向</button><br>
+        Speed 0<input type="range" id="speedcon" min="0" max="100" value="50" step="10"> 100
+    </fieldset>
+        
+        <div class="pagination"></div>
+    </div>
+    <footer class="footer">
+    <div class="powered_by">
+
+        <a href="#">Designed by Jialin</a>
+
+    </div>
+
+    <div class="footer_slogan">
+        <span>My spiritual home</span>
+    </div>
+</footer>
+</body>
+
+</html>
