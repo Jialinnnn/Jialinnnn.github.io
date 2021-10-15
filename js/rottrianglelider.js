@@ -26,10 +26,13 @@ function initRotSquare(){
 	gl.useProgram( program );
 
 	var vertices = [
-		 0,  1,  0,
-		-1,  0,  0,
-		 1,  0,  0,
-		 0, -1,  0
+// 		 0,  1,  0,
+// 		-1,  0,  0,
+// 		 1,  0,  0,
+// 		 0, -1,  0
+		-1.0, -1.0, 
+		 0.0,  1.0, 
+		 1.0, -1.0,
 	];
 
 	var bufferId = gl.createBuffer();
