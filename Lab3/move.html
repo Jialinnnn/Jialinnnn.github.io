@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>变形</title>
+</head>
+<body>
+    <canvas id="c1" width="1000" height="500">
+        您的浏览器暂不支持画布！
+    </canvas>
+        <script>
+        var speed =200;
+        var c1 = document.getElementById('c1');
+        var oCtx = c1.getContext('2d');
+        
+        var x=100,y=100;
+        var direction = 'right';
+        var oFishImg = new Image();
+        oFishImg.src = "./Lab0/p201912213502029.png";
+        c1.onchange = function(){
+            speed = 1000/(c1.value);
+        }
+        // speed=1000/c1.value;
+
+        oFishImg.onload = function(){
+
+        setInterval(function(){
+            oCtx.clearRect(0,0,c1.width,c1.height);
+            oCtx.drawImage(oFishImg,x,y);
+            // x+=2;
+            if(this.direction==='right'){
+                    if(this.x<=440)
+                    {
+                       this.x+=5;   
+                    }
+                    else
+                    {
+                        this.direction='left';
+                    }
+                }else{
+                    if(this.x>=60)
+                    {
+                        this.x-=5;
+                    }
+                    else
+                    {
+                        this.direction='right';
+                    }
+                }
+        },speed);
+        };       
+        </script>
+</body>
+<br>
+20<input type="range" id="c1" min="20" max="1000" value="200" />1000
+</html>
