@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+    <meta charset="utf-8" />
+
+	<title>Jialin's Blogs</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+	<script id="v-shader" type="x-shader/x-vertex">
+		attribute vec4 vPosition;
+		attribute vec4 vColor;
+			
+		varying vec4 fColor;
+			
+		uniform vec2 zoom;
+		uniform vec2 move;
+		uniform vec2 theta;
+			
+		void main(){
+			vec2 angles = radians(theta);
+			vec2 cost = cos(theta);
+			vec2 sint = sin(theta);
+				
+			mat4 ry = mat4(cost[0], 0.0, -sint[0], 0.0,
+						   0.0, 1.0, 0.0, 0.0,
+						   sint[0], 0.0, cost[0], 0.0,
+						   0.0, 0.0, 0.0, 1.0);
+				
+			mat4 rz = mat4(cost[1], sint[1], 0.0, 0.0,
+						   -sint[1], cost[1], 0.0, 0.0,
+						   0.0, 0.0, 1.0, 0.0,
+						   0.0, 0.0, 0.0, 1.0);
+							   
+			mat4 Zoom = mat4(1.0+zoom[0], 0.0, 0.0, 0.0,
+							 0.0, 1.0+zoom[1], 0.0, 0.0,
+							 0.0, 0.0, 1.0, 0.0,
+							 0.0, 0.0, 0.0, 1.0);
+								 
+			mat4 mt = mat4(1.0, 0.0, 0.0, 0.0,
+						   0.0, 1.0, 0.0, 0.0,
+						   0.0, 0.0, 1.0, 0.0,
+						   move[0], move[1], 0.0, 1.0);
+							   
+			gl_Position = vPosition;
+			gl_Position = ry * rz * gl_Position;
+			gl_Position = Zoom * gl_Position;
+			gl_Position = mt * gl_Position;
+			gl_Position.z = -gl_Position.z;
+			fColor = vColor;
+		}
+	</script>
+	<script id="f-shader" type="x-shader/x-fragment">
+		precision mediump float;
+		varying vec4 fColor;
+			
+		void main(){
+			gl_FragColor = fColor;
+		}
+	</script>
+
+    <script type="text/javascript" src="../js/common/gl-matrix-min.js"></script>
+    <script type="text/javascript" src="../js/common/initShaders.js"></script>
+    <script type="text/javascript" src="../js/common/webgl-utils.js"></script>
+
+    <script type="text/javascript" src="../js/shape.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="nav_container">
+    		<div class="site_nav" id="site_nav">
+        		<ul>
+
+            		<li>
+                	<a href="index.html">Home</a>
+            		</li>
+            
+            		<li>
+                	<a href="#">Blog</a>
+            		</li>
+
+            		<li>
+                	<a href="./About.html">About</a>
+            		</li>      
+        			</ul>
+    		</div>
+
+		</div>
+        <div class="header">
+    		<div class="site_title_container">
+        		<div class="site_title">
+            		<h1>
+                		<a href="#">
+                    		<span>Lab4</span>
+                		</a>
+            		</h1>
+        		</div>
+        		<div class="description">
+            	<p class="sub_title">Try harder.</p>
+
+        		</div>
+    		</div>
+		</div>
+		<div style="text-align: center;">
+			<canvas id="various-canvas" width="512" height="412">你的浏览器不支持HTML5 canvas元素</canvas>
+		<br><br>
+		
+		<div id="controls">
+		<input type="radio" name="shape" value="0" checked="checked"/>正三角形
+		<input type="radio" name="shape" value="1"/>正方形
+		<input type="radio" name="shape" value="2"/>正方体
+		<input type="radio" name="shape" value="3"/>圆形
+		</div>
+
+		<br />
+		<label>圆形边数调节 ：</label>
+		<input type="range" id="sideSel" value="2" min="1" max="12"/><br /><br>
+		<button class="button" type="button" id="clearButton">清空画布</button><br />
+		</div>
+        		<div class="pagination"></div> 
+    	
+    	<footer class="footer">
+    		<div class="powered_by">
+        		<a href="#">Designed by Jialin</a>
+    		</div>
+
+    		<div class="footer_slogan">
+        		<span>My spirits home</span>
+    		</div>
+		</footer>
+	</div>
+</body>
+
+</html>
