@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+    <meta charset="utf-8" />
+
+	<title>Jialin's Blogs</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+	<script id="vertex-shader" type="x-shader/x-vertex">
+        attribute vec4 vPosition;
+        attribute vec4 vColor;
+        varying vec4 fColor;
+        
+        uniform mat4 modelViewMatrix;
+        uniform mat4 projectionMatrix;
+       
+        void main()
+        {
+        	gl_Position = projectionMatrix * modelViewMatrix * vPosition;
+        	fColor = vColor;	
+        }
+    </script>
+        
+    <script id="fragment-shader" type="x-shader/x-fragment">
+       	precision mediump float;
+        
+       	varying vec4 fColor;
+        
+       	void main()
+       	{
+            gl_FragColor = fColor;
+       	}
+    </script>
+
+    <script type="text/javascript" src="../js/common/gl-matrix-min.js"></script>
+    <script type="text/javascript" src="../js/common/initShaders.js"></script>
+    <script type="text/javascript" src="../js/common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../js/common/objloader.js"></script>
+
+    <script type="text/javascript" src="../js/complexobjview.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="nav_container">
+    		<div class="site_nav" id="site_nav">
+        		<ul>
+
+            		<li>
+                	<a href="index.html">Home</a>
+            		</li>
+            
+            		<li>
+                	<a href="#">Blog</a>
+            		</li>
+
+            		<li>
+                	<a href="./About.html">About</a>
+            		</li>      
+        			</ul>
+    		</div>
+
+		</div>
+        <div class="header">
+    		<div class="site_title_container">
+        		<div class="site_title">
+            		<h1>
+                		<a href="#">
+                    		<span>Lab5</span>
+                		</a>
+            		</h1>
+        		</div>
+        		<div class="description">
+            	<p class="sub_title">Try harder.</p>
+
+        		</div>
+    		</div>
+		</div>
+		<div style="text-align: center;">
+			<canvas id="gl-canvas" width="512" height="412">你的浏览器不支持HTML5 canvas元素</canvas>
+			<br><br>
+    	</div>
+    	<div style="text-align: center;">
+            <label>选择一个OBJ模型文件</label>
+            <input type="file" id="fileInput"><pre id="fileDisplay"></pre>
+        <div>
+            <label>选择投影方式</label>
+            <input type="radio" id="ortho" name="projtype" value="1" checked><label>正交投影</label>
+            &nbsp;
+            <input type="radio" id="persp" name="projtype" value="2"><label>透视投影</label>&nbsp;<label id="projtyperes"></label>
+        </div>
+        <div>
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选择绘制方式</label>
+            <input type="radio" id="wire" name="drawtype" value="1" checked><label>线框模式</label>
+            &nbsp;
+            <input type="radio" id="solid" name="drawtype" value="2" ><label>实体模式</label>
+
+            <input type="color" id="objcolor" name="objcolor" value="#ff0000">
+        </div>
+        
+        <div>
+            <label>改变对象位置</label><input type="radio" id="objpos" name="posgrp" value="1" checked><label>物体位置</label>
+            &nbsp;
+            <input type="radio" id="campos" name="posgrp" value="2"><label>相机位置</label>&nbsp;<label
+                id="projtyperes"></label>
+            <br><br>
+            <label>x pos</label><input type="range" id="xpos" name="xpos" min="-5.0" max="5.0" step="0.1"> &nbsp; 
+            <label>x rot</label><input type="range" id="xrot" name="xrot" min="-360" max="360" step="1.0"><br>
+            <label>y pos</label><input type="range" id="ypos" name="ypos" min="-5.0" max="5.0" step="0.1"> &nbsp;
+            <label>y rot</label><input type="range" id="yrot" name="yrot" min="-360" max="360" step="1.0"><br>
+            <label>z pos</label><input type="range" id="zpos" name="zpos" min="-5.0" max="5.0" step="0.1"> &nbsp;
+            <label>z rot</label><input type="range" id="zrot" name="zrot" min="-360" max="360" step="1.0">
+        </div>
+		</div>
+        		<div class="pagination"></div> 
+    	
+    	<footer class="footer">
+    		<div class="powered_by">
+        		<a href="#">Designed by Jialin</a>
+    		</div>
+
+    		<div class="footer_slogan">
+        		<span>My spiritstyle="margin-right: 100px"ual home</span>
+    		</div>
+		</footer>
+	</div>
+</body>
+
+</html>
